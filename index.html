@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="styles.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>Task GPT</title>
   </head>
   <body>
+    <!---Header with Chat header and yellow Start Over button-->
     <header class="flex justify-between m-8">
       <h1 class="font-bold text-3xl text-slate-600">Chat</h1>
       <span class="bg-yellow-400 rounded-md p-2 flex">
@@ -29,6 +30,7 @@
       </span>
     </header>
     <main>
+      <!--First gray box with introduction and option buttons-->
       <section class="p-6 bg-slate-200">
         <p class="m-2">
           Hi! Tell me about an email, sequence, or anything else you'd like to
@@ -36,89 +38,23 @@
           any other relevant details.
         </p>
         <div class="flex">
-          <div class="section-btn" id="promo-btn"><p>holiday promotional email</p></div>
-          <div class="section-btn"><p>cold outeach email</p></div>
-          <div class="section-btn"><p>product launch email</p></div>
-          <div class="section-btn"><p>abandoned cart email sequence</p></div>
+          <div class="section-btn" id="promo-btn">
+            <p>holiday promotional email</p>
+          </div>
+          <div class="section-btn" id="cold-btn"><p>cold outeach email</p></div>
+          <div class="section-btn" id="launch-btn"><p>product launch email</p></div>
+          <div class="section-btn" id="abandoned-btn"><p>abandoned cart email sequence</p></div>
         </div>
       </section>
+      <!--text area with placeholder What should I do today?-->
       <section class="bg-white h-36 p-10" id="task-prompt">
-        <p>What should I do today?</p>
-      </section>
-      <section class="p-6 bg-slate-200">
-        <p class="m-2">
-          I'm sorry, but as an AI language model, I don't have access to your
-          schedule or daily tasks. However, if you're looking for some
-          inspiration, you could try going for a walk or doing some exercise,
-          reading a book, listening to music, trying a new hobby or activity, or
-          spending time with loved ones. It's important to priotitize self-care
-          and relaxiation, as well as work and productivity.
-        </p>
-        <div class="flex">
-          <div class="section-btn"><p>generate full email with subject</p></div>
-          <div class="section-btn"><p>suggest something</p></div>
-        </div>
-        <div class="flex">
-          <div class="section-btn flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6 mx-2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-
-            <p>Generate another varient</p>
-          </div>
-          <div class="section-btn flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-
-            <p class="mx-2">1/2</p>
-          </div>
-        </div>
-      </section>
-      <!--Textbox at the bottom of the page-->
-      <section class="w-full">
         <textarea
-          name="textbox"
-          rows="2"
-          placeholder="type or use the mic, press enter to submit"
-          class="m-6 p-3 border border-gray-300 rounded shadow-lg w-11/12"></textarea>
+          class="w-11/12"
+          rows="3"
+          placeholder="What should I do today?"
+        ></textarea>
       </section>
+      <section id="task-prompt-result"></section>
     </main>
     <footer class="text-center text-gray-300">
       <p>TaskGPT 2023. All rights reserved.</p>
