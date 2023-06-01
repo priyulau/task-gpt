@@ -1,14 +1,15 @@
-// C-style
+//define all variables
+const promoBtn = document.getElementById("promo-btn");
+const taskPrompt = document.getElementById("task-prompt");
+const taskPromptResult = document.getElementById("task-prompt-result");
 
-//1. define the problem
-//1a. when a user clicks one of my divs
+//create event handlers with console.log
+promoBtn.addEventListener("click",
+    function () {
+        console.log("you clicked the promotional email button!")
+    });
 
-const myBtn = "stuff";
-const myName = "Priscilla Lau";
-const myNumber = "34";
-
-// variable called "myBtn" that has "stuff"
-
-console.log(myBtn + myNumber);
-
-//1b. I see a pop-up
+taskPrompt.addEventListener("blur",
+    function () {
+        console.log("this works on losing focus")
+    });
