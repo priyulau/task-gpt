@@ -28,10 +28,13 @@ abandBtn.addEventListener("click",
         console.log("you clicked the abandoned cart email sequence button!")
     });
 
-taskPrompt.addEventListener("blur",
+/*console.log(taskPrompt);
+console.log(taskPromptResultEl);*/
+
+taskPrompt.addEventListener("click",
     function () {
-        console.log("this works on losing focus")
-        console.log(taskPromptResultEl);
+        //console.log("this works on losing focus")
+        console.log(taskPromptResultEl)
         taskPromptResultEl.innerHTML =
         `
         <section class="p-6 bg-slate-200">
