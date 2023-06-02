@@ -37,6 +37,7 @@ taskPrompt.addEventListener("click",
         console.log("this works on losing focus")
         console.log(taskPromptResultEl)
         taskPromptResultEl.innerHTML =
+        //HTML elements taken from index.html that will appear upon the submit button click event
         `
         <section class="p-6 bg-slate-200">
           <p class="m-2">
