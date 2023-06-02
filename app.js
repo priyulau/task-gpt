@@ -1,13 +1,12 @@
-//define all variables
+//define all variables by grabbing the HTML elements by ID
 const promoBtn = document.getElementById("promo-btn");
 const coldBtn = document.getElementById("cold-btn");
 const prodBtn = document.getElementById("launch-btn");
 const abandBtn = document.getElementById("abandoned-btn");
-
 const taskPrompt = document.getElementById("task-prompt");
 const taskPromptResultEl = document.getElementById("task-prompt-result");
 
-//create event handlers with console.log
+//create event handlers with console.log so that when you click, a message prints out in the console
 promoBtn.addEventListener("click",
     function () {
         console.log("you clicked the promotional email button!")
@@ -28,12 +27,14 @@ abandBtn.addEventListener("click",
         console.log("you clicked the abandoned cart email sequence button!")
     });
 
-/*console.log(taskPrompt);
-console.log(taskPromptResultEl);*/
+//this pulls the HTML based on defined variables above and prints into console
+console.log(taskPrompt);
+console.log(taskPromptResultEl);
 
+//whe the submit button is clicked, the following will happen and the HTML elements will appear
 taskPrompt.addEventListener("click",
     function () {
-        //console.log("this works on losing focus")
+        console.log("this works on losing focus")
         console.log(taskPromptResultEl)
         taskPromptResultEl.innerHTML =
         `
