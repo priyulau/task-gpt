@@ -4,7 +4,9 @@ const coldBtn = document.getElementById("cold-btn");
 const prodBtn = document.getElementById("launch-btn");
 const abandBtn = document.getElementById("abandoned-btn");
 const taskPrompt = document.getElementById("task-prompt");
+const submitBtn = document.getElementById("submit-btn");
 const taskPromptResultEl = document.getElementById("task-prompt-result");
+const userInputResult = document.getElementById("user-input-result");
 
 //create event handlers with console.log so that when you click, a message prints out in the console
 promoBtn.addEventListener("click", function () {
@@ -23,17 +25,10 @@ abandBtn.addEventListener("click", function () {
   console.log("you clicked the abandoned cart email sequence button!");
 });
 
-//this pulls the HTML based on defined variables above and prints into console
-console.log(taskPrompt);
-console.log(taskPromptResultEl);
-
-//whe the submit button is clicked, the following will happen and the HTML elements will appear
-taskPrompt.addEventListener("click", function () {
-  console.log("this works on losing focus");
-  console.log(taskPromptResultEl);
-  taskPromptResultEl.innerHTML =
-    //HTML elements taken from index.html that will appear upon the submit button click event
-    `
+//when enter is keyed, the HTML elements will appear
+taskPrompt.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    taskPromptResultEl.innerHTML = `
         <section class="p-6 bg-slate-200">
           <p class="m-2">
             I'm sorry, but as an AI language model, I don't have access to your
@@ -103,14 +98,27 @@ taskPrompt.addEventListener("click", function () {
             </div>
           </div>
         </section>
-        <!--Textbox at the bottom of the page-->
-        <section class="w-full">
-          <textarea
-            name="textbox"
-            rows="2"
-            placeholder="type or use the mic, press enter to submit"
-            class="m-6 p-3 border border-gray-300 rounded shadow-lg w-11/12"
-          ></textarea>
-        </section>
-        `;
+    `;
+
+    //this creates a variable that holds the value written in the textbox
+    const userInputText = taskPrompt.value;
+
+    //this prints the variable text into the console log
+    console.log(userInputText);
+
+    //this displays the variable text (what is typed into the textbox by the user) onto the screen
+    userInputResult.innerHTML = `
+    <section class="p-8 bg-slate-050">
+      <p class="m-2">
+        <div id="user-input-text"> ${userInputText} </div>
+      </p>
+    </section>
+    `;
+
+    taskPrompt.value = "";
+  }
 });
+
+//Other things TO DO:
+//add dropdown, use change event to do similar outcome
+//Start over button (use button event to set variables to nothing)

@@ -46,16 +46,19 @@
           <div class="section-btn" id="abandoned-btn"><p>abandoned cart email sequence</p></div>
         </div>
       </section>
-      <!--text area with placeholder What should I do today?-->
-      <section class="bg-white p-10">
-        <textarea
-          class="w-11/12"
-          rows="3"
-          placeholder="What should I do today?"
-        ></textarea>
-        <button type="submit" id="task-prompt" class="bg-yellow-400 rounded-md p-2 flex">Submit</button>
-      </section>
+      <!--Resulting HTML element that pops up after Enter keyed-->
+      <section id="user-input-result"></section>
       <section id="task-prompt-result"></section>
+      <!--text area with placeholder-->
+        <section class="w-11/12">
+          <textarea
+            name="textbox"
+            rows="2"
+            id="task-prompt"
+            placeholder="type or use the mic, press enter to submit"
+            class="m-6 p-3 border border-gray-300 rounded shadow-lg w-11/12"
+          ></textarea>
+        </section>
     </main>
     <footer class="text-center text-gray-300">
       <p>TaskGPT 2023. All rights reserved.</p>
