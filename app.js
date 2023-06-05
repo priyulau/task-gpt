@@ -5,40 +5,31 @@ const prodBtn = document.getElementById("launch-btn");
 const abandBtn = document.getElementById("abandoned-btn");
 const taskPrompt = document.getElementById("task-prompt");
 const taskPromptResultEl = document.getElementById("task-prompt-result");
+const userInputResult = document.getElementById("user-input-result");
+const startOverBtn = document.getElementById("start-over-btn");
+const suggestDrop = document.getElementById("suggest-drop");
 
 //create event handlers with console.log so that when you click, a message prints out in the console
-promoBtn.addEventListener("click",
-    function () {
-        console.log("you clicked the promotional email button!")
-    });
+promoBtn.addEventListener("click", function () {
+  console.log("you clicked the promotional email button!");
+});
 
-coldBtn.addEventListener("click",
-    function () {
-        console.log("you clicked the cold outreach email button!")
-    });
+coldBtn.addEventListener("click", function () {
+  console.log("you clicked the cold outreach email button!");
+});
 
-prodBtn.addEventListener("click",
-    function () {
-        console.log("you clicked the product launch email button!")
-    });
+prodBtn.addEventListener("click", function () {
+  console.log("you clicked the product launch email button!");
+});
 
-abandBtn.addEventListener("click",
-    function () {
-        console.log("you clicked the abandoned cart email sequence button!")
-    });
+abandBtn.addEventListener("click", function () {
+  console.log("you clicked the abandoned cart email sequence button!");
+});
 
-//this pulls the HTML based on defined variables above and prints into console
-console.log(taskPrompt);
-console.log(taskPromptResultEl);
-
-//whe the submit button is clicked, the following will happen and the HTML elements will appear
-taskPrompt.addEventListener("click",
-    function () {
-        console.log("this works on losing focus")
-        console.log(taskPromptResultEl)
-        taskPromptResultEl.innerHTML =
-        //HTML elements taken from index.html that will appear upon the submit button click event
-        `
+//when enter is keyed, the HTML elements will appear
+taskPrompt.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    taskPromptResultEl.innerHTML = `
         <section class="p-6 bg-slate-200">
           <p class="m-2">
             I'm sorry, but as an AI language model, I don't have access to your
@@ -108,14 +99,49 @@ taskPrompt.addEventListener("click",
             </div>
           </div>
         </section>
-        <!--Textbox at the bottom of the page-->
-        <section class="w-full">
-          <textarea
-            name="textbox"
-            rows="2"
-            placeholder="type or use the mic, press enter to submit"
-            class="m-6 p-3 border border-gray-300 rounded shadow-lg w-11/12"
-          ></textarea>
-        </section>
-        `
-    });
+    `;
+
+    //this creates a variable that holds the value written in the textbox
+    const userInputText = taskPrompt.value;
+
+    //this prints the variable text into the console log
+    console.log(userInputText);
+
+    //this displays the variable text (what is typed into the textbox by the user) onto the screen
+    userInputResult.innerHTML = `
+    <section class="p-8 bg-slate-050">
+      <p class="m-2">
+        <div id="user-input-text"> ${userInputText} </div>
+      </p>
+    </section>
+    `;
+    taskPrompt.value = "";
+  }
+});
+
+//upon clicking the "start over" button, the page will reload
+startOverBtn.addEventListener("click", function () {
+  location.reload();
+});
+
+//upon changing the dropdown selection, a statement will print on the console
+// suggestDrop.addEventListener("change", function (event) {
+//   console.log("is this working?")
+// });
+
+//upon selecting a particular dropdown option, a matching statement will print on the console
+
+suggestDrop.addEventListener("change", function (event) {
+  if (event.target.value === "holiday promotional email")
+    generateTask("holiday promotional email");
+  if (event.target.value === "cold outreach email")
+    generateTask("cold outreach email");
+  if (event.target.value === "product launch email")
+    generateTask("product launch email");
+  if (event.target.value === "abandoned cart email sequence")
+    generateTask("abandoned cart email sequence");
+});
+
+function generateTask(suggestDrop) {
+  console.log(`you've selected the ${suggestDrop} task!`);
+};

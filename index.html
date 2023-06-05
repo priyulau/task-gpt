@@ -11,7 +11,7 @@
     <!---Header with Chat header and yellow Start Over button-->
     <header class="flex justify-between m-8">
       <h1 class="font-bold text-3xl text-slate-600">Chat</h1>
-      <span class="bg-yellow-400 rounded-md p-2 flex">
+      <span class="bg-yellow-400 rounded-md p-2 flex" id="start-over-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -37,7 +37,7 @@
           write. What's the product or service, the goal, target audience, and
           any other relevant details.
         </p>
-        <div class="flex">
+        <div class="flex"> <!--Gray buttons with suggestions-->
           <div class="section-btn" id="promo-btn">
             <p>holiday promotional email</p>
           </div>
@@ -45,17 +45,30 @@
           <div class="section-btn" id="launch-btn"><p>product launch email</p></div>
           <div class="section-btn" id="abandoned-btn"><p>abandoned cart email sequence</p></div>
         </div>
+        <div class="m-2"> <!--Dropdown menu with suggestions-->
+          <div>
+            <select name="suggest-drop" id="suggest-drop">
+              <option value="holiday promotional email">holiday promotional email</option>
+              <option value="cold outreach email">cold outreach email</option>
+              <option value="product launch email">product launch email</option>
+              <option value="abandoned cart email sequence">abandoned cart email</option>
+            </select>
+          </div>
+        </div>
       </section>
-      <!--text area with placeholder What should I do today?-->
-      <section class="bg-white p-10">
-        <textarea
-          class="w-11/12"
-          rows="3"
-          placeholder="What should I do today?"
-        ></textarea>
-        <button type="submit" id="task-prompt" class="bg-yellow-400 rounded-md p-2 flex">Submit</button>
-      </section>
+      <!--Resulting HTML element that pops up after Enter keyed-->
+      <section id="user-input-result"></section>
       <section id="task-prompt-result"></section>
+      <!--text area with placeholder-->
+        <section class="w-11/12">
+          <textarea
+            name="textbox"
+            rows="2"
+            id="task-prompt"
+            placeholder="type or use the mic, press enter to submit"
+            class="m-6 p-3 border border-gray-300 rounded shadow-lg w-11/12"
+          ></textarea>
+        </section>
     </main>
     <footer class="text-center text-gray-300">
       <p>TaskGPT 2023. All rights reserved.</p>
