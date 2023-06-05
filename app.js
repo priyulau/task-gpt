@@ -119,20 +119,29 @@ taskPrompt.addEventListener("keydown", function (event) {
   }
 });
 
+//upon clicking the "start over" button, the page will reload
 startOverBtn.addEventListener("click", function () {
   location.reload();
 });
 
-suggestDrop.addEventListener("change", function () {
-  console.log("is this working?")
+//upon changing the dropdown selection, a statement will print on the console
+// suggestDrop.addEventListener("change", function (event) {
+//   console.log("is this working?")
+// });
+
+//upon selecting a particular dropdown option, a matching statement will print on the console
+
+suggestDrop.addEventListener("change", function (event) {
+  if (event.target.value === "holiday promotional email")
+    generateTask("holiday promotional email");
+  if (event.target.value === "cold outreach email")
+    generateTask("cold outreach email");
+  if (event.target.value === "product launch email")
+    generateTask("product launch email");
+  if (event.target.value === "abandoned cart email sequence")
+    generateTask("abandoned cart email sequence");
 });
 
-// if (event.target.value === "holiday promotional email") generatePromoTask();
-
-// function generatePromoTask() {
-//   console.log("you've selected the holiday promotional email task!")
-// }
-
-//Other things TO DO:
-//add dropdown, use change event to do similar outcome
-//Start over button (use button event to set variables to nothing)
+function generateTask(suggestDrop) {
+  console.log(`you've selected the ${suggestDrop} task!`);
+};
