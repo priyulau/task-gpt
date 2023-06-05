@@ -4,9 +4,10 @@ const coldBtn = document.getElementById("cold-btn");
 const prodBtn = document.getElementById("launch-btn");
 const abandBtn = document.getElementById("abandoned-btn");
 const taskPrompt = document.getElementById("task-prompt");
-const submitBtn = document.getElementById("submit-btn");
 const taskPromptResultEl = document.getElementById("task-prompt-result");
 const userInputResult = document.getElementById("user-input-result");
+const startOverBtn = document.getElementById("start-over-btn");
+const suggestDrop = document.getElementById("suggest-drop");
 
 //create event handlers with console.log so that when you click, a message prints out in the console
 promoBtn.addEventListener("click", function () {
@@ -114,10 +115,23 @@ taskPrompt.addEventListener("keydown", function (event) {
       </p>
     </section>
     `;
-
     taskPrompt.value = "";
   }
 });
+
+startOverBtn.addEventListener("click", function () {
+  location.reload();
+});
+
+suggestDrop.addEventListener("change", function () {
+  console.log("is this working?")
+});
+
+// if (event.target.value === "holiday promotional email") generatePromoTask();
+
+// function generatePromoTask() {
+//   console.log("you've selected the holiday promotional email task!")
+// }
 
 //Other things TO DO:
 //add dropdown, use change event to do similar outcome

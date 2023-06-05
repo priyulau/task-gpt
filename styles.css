@@ -550,10 +550,6 @@ video {
   margin-right: 0.5rem;
 }
 
-.block {
-  display: block;
-}
-
 .flex {
   display: flex;
 }
@@ -568,6 +564,10 @@ video {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .justify-between {
@@ -611,10 +611,6 @@ video {
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-4 {
-  padding: 1rem;
 }
 
 .p-8 {
