@@ -7,10 +7,10 @@ const taskPrompt = document.getElementById("task-prompt");
 const taskPromptResultEl = document.getElementById("task-prompt-result");
 const userInputResult = document.getElementById("user-input-result");
 const startOverBtn = document.getElementById("start-over-btn");
-const suggestDrop = document.getElementById("suggest-drop");
+const suggestDropdown = document.getElementById("suggest-dropdown");
 
 //when enter is keyed, the text will stay and AI Generated results will appear
-taskPrompt.addEventListener("keydown", function (event) {
+taskPrompt.addEventListener("keydown", (event) =>{
   if (event.key === "Enter") {
     taskPromptResultEl.innerHTML = `
         <section class="p-6 bg-slate-200">
@@ -102,16 +102,16 @@ taskPrompt.addEventListener("keydown", function (event) {
 });
 
 //upon clicking the "start over" button, the page will reload
-startOverBtn.addEventListener("click", function () {
+startOverBtn.addEventListener("click", () => {
   taskPromptResultEl.innerHTML= ""; // resets the gray AI generated box
   userInputResult.innerHTML = ""; // resets the white text box
-  suggestDrop.value = ""; // resets the dropbox
+  suggestDropdown.value = ""; // resets the dropbox
 });
 
 //javascript for dropdown section of the page
 
 //creating event listener so that upon change, the results will update
-suggestDrop.addEventListener("change", function (event) {
+suggestDropdown.addEventListener("change", (event) => {
   updateResult(event.target.value);
 });
 
@@ -126,7 +126,7 @@ suggestDrop.addEventListener("change", function (event) {
 //         </section>
 //     `;
 //     //white area - inputted text
-//     let userInputText = suggestDrop.value;
+//     let userInputText = suggestDropdown.value;
 //     userInputResult.innerHTML = `
 //     <section class="p-8 bg-slate-050">
 //       <p class="m-2">
@@ -143,7 +143,7 @@ suggestDrop.addEventListener("change", function (event) {
 //         </section>
 //     `;
 //     //white area
-//     let userInputText = suggestDrop.value;
+//     let userInputText = suggestDropdown.value;
 //     userInputResult.innerHTML = `
 //     <section class="p-8 bg-slate-050">
 //       <p class="m-2">
@@ -158,7 +158,7 @@ suggestDrop.addEventListener("change", function (event) {
 //           <p class="m-2">Here is your ${dropdownType} AI generated content:
 //         </section>
 //     `;
-//     let userInputText = suggestDrop.value;
+//     let userInputText = suggestDropdown.value;
 //     userInputResult.innerHTML = `
 //     <section class="p-8 bg-slate-050">
 //       <p class="m-2">
@@ -173,7 +173,7 @@ suggestDrop.addEventListener("change", function (event) {
 //           <p class="m-2">Here is your ${dropdownType} AI generated content:
 //         </section>
 //     `;
-//     let userInputText = suggestDrop.value;
+//     let userInputText = suggestDropdown.value;
 //     userInputResult.innerHTML = `
 //     <section class="p-8 bg-slate-050">
 //       <p class="m-2">
@@ -185,11 +185,11 @@ suggestDrop.addEventListener("change", function (event) {
 // };
 
 //redid function above but combined conditionals into one and use OR
-function updateResult(dropdownType) {
-  if (dropdownType === "holiday promotional email"||
-  dropdownType === "cold outreach email" ||
-  dropdownType === "product launch email"||
-  dropdownType === "abandoned cart email sequence")
+const updateResult = (dropdownType) => {
+  // if (dropdownType === "holiday promotional email"||
+  // dropdownType === "cold outreach email" ||
+  // dropdownType === "product launch email"||
+  // dropdownType === "abandoned cart email sequence")
   //OUTCOME 1: console print statement
   console.log(`you've selected the ${dropdownType} task!`);
   //OUTCOME 2: gray area - AI generated content
@@ -199,7 +199,7 @@ function updateResult(dropdownType) {
     </section>
   `;
   //OUTCOME 3: white area - inputted text
-    let userInputText = suggestDrop.value;
+    let userInputText = suggestDropdown.value;
     userInputResult.innerHTML = `
     <section class="p-8 bg-slate-050">
       <p class="m-2">
@@ -210,18 +210,18 @@ function updateResult(dropdownType) {
 };
 
 //create event handlers with console.log so that when you click, a message prints out in the console
-promoBtn.addEventListener("click", function () {
+promoBtn.addEventListener("click", () => {
   updateResult("holiday promotional email");
 });
 
-coldBtn.addEventListener("click", function () {
+coldBtn.addEventListener("click", () => {
   updateResult("cold outreach email");
 });
 
-prodBtn.addEventListener("click", function () {
+prodBtn.addEventListener("click", () => {
   updateResult("product launch email");
 });
 
-abandBtn.addEventListener("click", function () {
+abandBtn.addEventListener("click", () => {
   updateResult("abandoned cart email sequence");
 });
