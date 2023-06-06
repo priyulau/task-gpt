@@ -10,7 +10,7 @@ const startOverBtn = document.getElementById("start-over-btn");
 const suggestDropdown = document.getElementById("suggest-dropdown");
 
 //when enter is keyed, the text will stay and AI Generated results will appear
-taskPrompt.addEventListener("keydown", (event) =>{
+taskPrompt.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     taskPromptResultEl.innerHTML = `
         <section class="p-6 bg-slate-200">
@@ -84,7 +84,7 @@ taskPrompt.addEventListener("keydown", (event) =>{
         </section>
     `;
     //this creates a variable that holds the value written in the textbox
-    let userInputText = taskPrompt.value;
+    const userInputText = taskPrompt.value;
 
     //this prints the variable text into the console log
     console.log(userInputText);
@@ -115,75 +115,6 @@ suggestDropdown.addEventListener("change", (event) => {
   updateResult(event.target.value);
 });
 
-//creating function that generates the appropriate task result
-// function updateResult(dropdownType) {
-//   console.log(`you've selected the ${dropdownType} task!`);
-//   if (dropdownType === "holiday promotional email") {
-//     //gray area - AI generated content
-//     taskPromptResultEl.innerHTML = `
-//       <section class="p-6 bg-slate-200">
-//           <p class="m-2">Here is your ${dropdownType} AI generated content:
-//         </section>
-//     `;
-//     //white area - inputted text
-//     let userInputText = suggestDropdown.value;
-//     userInputResult.innerHTML = `
-//     <section class="p-8 bg-slate-050">
-//       <p class="m-2">
-//         <div id="user-input-text"> ${userInputText} </div>
-//       </p>
-//     </section>
-//     `;
-//   }
-//   if (dropdownType === "cold outreach email") {
-//     //gray area
-//     taskPromptResultEl.innerHTML = `
-//       <section class="p-6 bg-slate-200">
-//           <p class="m-2">Here is your ${dropdownType} AI generated content:
-//         </section>
-//     `;
-//     //white area
-//     let userInputText = suggestDropdown.value;
-//     userInputResult.innerHTML = `
-//     <section class="p-8 bg-slate-050">
-//       <p class="m-2">
-//         <div id="user-input-text"> ${userInputText} </div>
-//       </p>
-//     </section>
-//     `;
-//   }
-//   if (dropdownType === "product launch email") {
-//     taskPromptResultEl.innerHTML = `
-//       <section class="p-6 bg-slate-200">
-//           <p class="m-2">Here is your ${dropdownType} AI generated content:
-//         </section>
-//     `;
-//     let userInputText = suggestDropdown.value;
-//     userInputResult.innerHTML = `
-//     <section class="p-8 bg-slate-050">
-//       <p class="m-2">
-//         <div id="user-input-text"> ${userInputText} </div>
-//       </p>
-//     </section>
-//     `;
-//   }
-//   if (dropdownType === "abandoned cart email sequence") {
-//     taskPromptResultEl.innerHTML = `
-//       <section class="p-6 bg-slate-200">
-//           <p class="m-2">Here is your ${dropdownType} AI generated content:
-//         </section>
-//     `;
-//     let userInputText = suggestDropdown.value;
-//     userInputResult.innerHTML = `
-//     <section class="p-8 bg-slate-050">
-//       <p class="m-2">
-//         <div id="user-input-text"> ${userInputText} </div>
-//       </p>
-//     </section>
-//     `;
-//   }
-// };
-
 //redid function above but combined conditionals into one and use OR
 const updateResult = (dropdownType) => {
   // if (dropdownType === "holiday promotional email"||
@@ -199,7 +130,7 @@ const updateResult = (dropdownType) => {
     </section>
   `;
   //OUTCOME 3: white area - inputted text
-    let userInputText = suggestDropdown.value;
+    const userInputText = suggestDropdown.value;
     userInputResult.innerHTML = `
     <section class="p-8 bg-slate-050">
       <p class="m-2">
