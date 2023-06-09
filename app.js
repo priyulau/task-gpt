@@ -93,13 +93,13 @@ taskPromptTextEl.addEventListener("keydown", (event) => {
 
     const generatedPlan = generateTask(userInput); //Data Structure
 
-    showGeneratedPlan(generatedPlan)
+    showGeneratedPlan(generatedPlan);
   }
 });
 
-
-function generateTask (prompt = "generate a day plan based on the __ technique") {
-  
+function generateTask(
+  prompt = "generate a day plan based on the __ technique"
+) {
   //use OpenAI to generate a plan based on a prod. method
   const generateResponseFromAPI = getGPTResponseData(prompt); //Array
 
@@ -110,7 +110,6 @@ function generateTask (prompt = "generate a day plan based on the __ technique")
 //mock a function
 function showGeneratedPlan(generatedPlanInput) {
   console.log(generatedPlanInput);
-
 
   // taskPromptResultEl.innerHTML = ""
 }
@@ -124,14 +123,17 @@ function showGeneratedPlan(generatedPlanInput) {
 
 //creates function with two parameters (item to display, location where innerHTML prints)
 function displayContent(aDisplayItem, showResultDOM = taskPromptResultEl) {
-  //will print content of aDisplayItem
+  //will print content of aDisplayItem, but will override whatever was there previously 
+  //until it reaches the end of the array
   showResultDOM.innerHTML = `${aDisplayItem}`;
+  //now, when looping, will add onto what is already there
+  showResultDOM.innerHTML += `${aDisplayItem}`;
   console.log(aDisplayItem);
 }
 
 function getGPTResponseData(prompt) {
   return [
-    "Certainly! The __ technique is a time management method that uses a timer..."
+    "Certainly! The __ technique is a time management method that uses a timer...",
   ];
 }
 
@@ -157,8 +159,8 @@ const updateResult = (dropdownType) => {
     </section>
   `;
   //OUTCOME 3: white area - inputted text
-    const userInputText = taskType.value;
-    userInputResult.innerHTML = `
+  const userInputText = taskType.value;
+  userInputResult.innerHTML = `
     <section class="p-8 bg-slate-050">
       <p class="m-2">
         <div id="user-input-text"> ${dropdownType} </div>
@@ -170,26 +172,29 @@ const updateResult = (dropdownType) => {
 //create event handlers with console.log so that when you click, a message prints out in the console
 promoBtn.addEventListener("click", () => {
   updateResult("holiday promotional email");
+  taskType.value="";
 });
 
 coldBtn.addEventListener("click", () => {
   updateResult("cold outreach email");
+  taskType.value="";
 });
 
 prodBtn.addEventListener("click", () => {
   updateResult("product launch email");
+  taskType.value="";
 });
 
 abandBtn.addEventListener("click", () => {
   updateResult("abandoned cart email sequence");
+  taskType.value="";
 });
-
 
 //RESET / START OVER BUTTON
 
 //upon clicking the "start over" button, the page will reload
 startOverBtn.addEventListener("click", () => {
-  taskPromptResultEl.innerHTML= ""; // resets the gray AI generated box
+  taskPromptResultEl.innerHTML = ""; // resets the gray AI generated box
   userInputResult.innerHTML = ""; // resets the white text box
   taskType.value = ""; // resets the dropbox
 });
